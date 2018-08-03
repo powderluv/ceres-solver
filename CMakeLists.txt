@@ -131,7 +131,7 @@ endif()
 set_property(CACHE CERES_THREADING_MODEL PROPERTY STRINGS
   ${CERES_THREADING_MODELS_AVAILABLE})
 
-option(MINIGLOG "Use a stripped down version of glog." OFF)
+option(MINIGLOG "Use a stripped down version of glog." ON)
 option(GFLAGS "Enable Google Flags." ON)
 option(SUITESPARSE "Enable SuiteSparse." ON)
 option(CXSPARSE "Enable CXSparse." ON)
@@ -748,7 +748,7 @@ install(FILES "${Ceres_BINARY_DIR}/CeresConfigVersion.cmake"
 configure_file("${Ceres_SOURCE_DIR}/cmake/uninstall.cmake.in"
                "${Ceres_BINARY_DIR}/cmake/uninstall.cmake"
                @ONLY)
-add_custom_target(uninstall
+add_custom_target(uninstall_ceres
                   COMMAND ${CMAKE_COMMAND} -P ${Ceres_BINARY_DIR}/cmake/uninstall.cmake)
 
 # Install method #2: Put Ceres build into local CMake registry.
